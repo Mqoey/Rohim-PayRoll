@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Models\Employee;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -44,10 +45,11 @@ Route::get('/report', function () {
     return view('admin.payroll.report');
 });
 
-
 //employee
 Route::get('/salary_manage', function () {
-    return view('admin.payroll.salary_manage', ['employees' => Employee::all()]);
+    return view('admin.payroll.salary_manage',
+     ['employees' => Employee::all()] ,
+     ['settings'=> Setting::all()]);
 });
 
 Route::get('/users', function () {
@@ -75,7 +77,7 @@ Route::get('/contact_us', function () {
 
 
 Route::get('/settings', function () {
-    return view('admin.employee.employee_manage');
+    return view('admin.settings.settings', ['settings'=> Setting::all()]);
 });
 
 Route::resource('salary', SalaryController::class);
