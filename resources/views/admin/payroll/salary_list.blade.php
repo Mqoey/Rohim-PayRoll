@@ -58,25 +58,21 @@
                             <table class="table table-centered mb-0">
                                 <thead class="table-light">
                                     <tr>
-
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Mobile</th>
-                                        <th>Email</th>
-                                        <th>Start date</th>
+                                        <th>Employee ID</th>
+                                        <th>Basic Salary</th>
+                                        <th>Paye Deduction</th>
+                                        <th>Pension Deduction</th>
                                         <th style="width: 125px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($employees as $employee)
                                     <tr>
-                                        <td><a href="" class="text-body fw-bold">{{ $employee->id }}</a> </td>
-                                        <td><a href="" class="text-body fw-bold">{{ $employee->first_name }}
-                                                {{ $employee->last_name }}</a> </td>
-                                        <td><a href="" class="text-body fw-bold">{{ $employee->phone_number }} </a> </td>
-                                        <td><a href="" class="text-body fw-bold">{{ $employee->email_adderss }} </a> </td>
+                                        <td><a href="" class="text-body fw-bold">{{ $employee->employee_id }}</a> </td>
+                                        <td><a href="" class="text-body fw-bold">{{ $employee->basic_salary }} </a> </td>
+                                        <td><a href="" class="text-body fw-bold">{{ $employee->paye_deduction }} </a> </td>
                                         <td>
-                                            {{ $employee->start_date }}<small class="text-muted"></small>
+                                            {{ $employee->pension_deduction }}<small class="text-muted"></small>
                                         </td>
 
                                         <td>

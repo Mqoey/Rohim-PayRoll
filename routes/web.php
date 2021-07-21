@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\UserController;
 use App\Models\Employee;
+use App\Models\EmployeeType;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +27,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     //
-    Route::get('/salary_list', function () {
-        return view('admin.payroll.salary_list', ['employees' => Employee::all()]);
-    });
-
 
 
 Route::get('/dashboard', function () {
@@ -46,11 +44,17 @@ Route::get('/report', function () {
 });
 
 //employee
-Route::get('/salary_manage', function () {
-    return view('admin.payroll.salary_manage',
-     ['employees' => Employee::all()] ,
-     ['settings'=> Setting::all()]);
-});
+// Route::get('/salary_manage', function () {
+//     return view('admin.payroll.salary_manage',
+//      ['employees' => Employee::all()] ,
+//     //  ['employee_types' => EmployeeType::all()] ,
+//      ['settings'=> Setting::all()]);
+// });
+
+//manage salary
+Route::get('/salary_manage', [PayrollController::class, 'index']);
+// Route::post('/salary_manage', [PayrollController::class, 'store']);
+Route::get('/salary_list', [PayrollController::class, 'list']);
 
 Route::get('/users', function () {
     return view('admin.employee.users', ['users' => User::all()]);
@@ -83,6 +87,8 @@ Route::get('/settings', function () {
 Route::resource('salary', SalaryController::class);
 
 Route::resource('employees', EmployeeController::class);
+
+Route::resource('salary', PayrollController::class);
 
 });
 require __DIR__ . '/auth.php';
