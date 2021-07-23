@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Models\Employee;
 use App\Models\EmployeeType;
@@ -26,8 +27,6 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    //
-
 
 Route::get('/dashboard', function () {
 
@@ -80,9 +79,12 @@ Route::get('/contact_us', function () {
 });
 
 
-Route::get('/settings', function () {
-    return view('admin.settings.settings', ['settings'=> Setting::all()]);
-});
+// Route::get('/', function () {
+//     return view('admin.settings.settings', ['settings'=> Setting::all()]);
+// });
+
+Route::get('/settings' , [SettingController::class , 'index']);
+Route::post('/settings' , [SettingController::class , 'update']);
 
 Route::resource('salary', SalaryController::class);
 

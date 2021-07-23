@@ -74,14 +74,17 @@
             </a>
         </li>
 
-        <li class="side-nav-item">
-            <a href="{{ url('logout') }}" class="side-nav-link">
-                <i class="uil-sign-out-alt"></i>
-                <span> Logout </span>
-            </a>
-        </li>
-        <!-- End Sidebar -->
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
 
+            <a href="route('logout')" onclick="event.preventDefault();
+                    this.closest('form').submit();" class="dropdown-item notify-item">
+                
+                    <i class="uil-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </form>
+        
         <div class="clearfix"></div>
         <!-- Sidebar -left -->
 

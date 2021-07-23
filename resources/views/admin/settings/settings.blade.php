@@ -23,63 +23,50 @@
                     </div>
                     <!-- end page title -->
 
-
-
                     <form class="row" method="POST" action="/settings">
                         @csrf
-
                         <div class="row">
-
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-
                                         <h4 class="header-title mt-5 mt-lg-0">Deductions Rates</h4>
-
                                         @foreach ($settings as $setting)
                                             <div class="mt-3">
                                                 <label>Paye Deduction Rate</label>
-                                                <input type="number" class="form-control" value="{{ $setting->paye }}">
+                                                <input type="text" class="form-control" name="paye"
+                                                    value="{{ $setting->paye }}">
                                             </div>
-
                                             <div class="mt-3">
                                                 <label>Pension Deduction Rate</label>
-                                                <input type="number" class="form-control" value="{{ $setting->pension }}">
+                                                <input type="text" class="form-control" name="pension"
+                                                    value="{{ $setting->pension }}">
                                             </div>
-
                                             <div class="mt-3">
                                                 <label>NASSA Deduction Rate</label>
-                                                <input type="number" class="form-control" value="{{ $setting->nassa }}">
+                                                <input type="text" class="form-control" name="nassa"
+                                                    value="{{ $setting->nassa }}">
                                             </div>
-
                                             <div class="mt-3">
                                                 <label>Zero Paye Deduction Rate</label>
-                                                <input type="number" class="form-control"
+                                                <input type="text" class="form-control" name="zero_payee"
                                                     value="{{ $setting->zero_payee }}">
                                             </div>
-
                                             <div class="mt-3">
                                                 <label>Period Earning Deductions</label>
-                                                <input type="number" class="form-control"
+                                                <input type="text" class="form-control" name="period_earning"
                                                     value="{{ $setting->period_earning }}">
                                             </div>
                                         @endforeach
-
-
                                         <div class="box-footer mt-3">
                                             <button type="submit" class="btn btn-primary btn-flat pull-right"><i
                                                     class=" uil-file-check-alt"></i> Save Details</button>
                                         </div>
-
-
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->
-
                     </form>
-
                 </div> <!-- End Content -->
 
                 <!-- Footer Start -->
@@ -102,9 +89,7 @@
                     </div>
                 </footer>
                 <!-- end Footer -->
-
             </div> <!-- content-page -->
-
         </div> <!-- end wrapper-->
     </div>
     <!-- END Container -->

@@ -9,5 +9,33 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $table = 'settings';
+
+    protected $fillable = [
+
+        'id', 'paye', 'basic_salary',
+        'pension', 'nassa', 'zero_payee',
+        'period_earning',
+
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function type()
+    {
+        return $this->hasMany(Type::class);
+    }
+
+    public function allowances()
+    {
+        return $this->hasMany(Allowance::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
