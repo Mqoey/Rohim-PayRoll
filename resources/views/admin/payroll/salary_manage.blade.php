@@ -98,13 +98,62 @@
                                 <div class="col-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="header-title">Basic Salary</h4>
+                                            <h4 class="header-title">Currency</h4>
                                             <div class="tab-content">
                                                 <div class="tab-pane show active" id="input-types-preview">
                                                     <div class="row">
                                                         <div class="mt-3">
-                                                            <input type="number" size="25dp" class="form-control"
-                                                                name="net_salary">
+                                                            <select class="form-select" name="currency" id="currency"
+                                                                required>
+                                                                <option value="USD">USD</option>
+                                                                <option value="ZWL">ZWL</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end row-->
+                                                </div> <!-- end preview-->
+                                            </div> <!-- end tab-content-->
+                                        </div> <!-- end card-body -->
+                                    </div> <!-- end card -->
+                                </div><!-- end col -->
+
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Pay Duration</h4>
+                                            <div class="tab-content">
+                                                <div class="tab-pane show active" id="input-types-preview">
+                                                    <div class="row">
+                                                        <div class="mt-3">
+                                                            <select class="form-select" name="payDuration" id="payDuration"
+                                                                required>
+                                                                <option value="daily">DAILY</option>
+                                                                <option value="weekly">WEEKLY</option>
+                                                                <option value="fortnightly">FORTNIGHTLY</option>
+                                                                <option value="monthly">MONTHLY</option>
+                                                                <option value="annual">ANNUAL</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end row-->
+                                                </div> <!-- end preview-->
+                                            </div> <!-- end tab-content-->
+                                        </div> <!-- end card-body -->
+                                    </div> <!-- end card -->
+                                </div><!-- end col -->
+
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Salary Range</h4>
+                                            <div class="tab-content">
+                                                <div class="tab-pane show active" id="input-types-preview">
+                                                    <div class="row">
+                                                        <div class="mt-3">
+                                                            <select class="form-select" name="salaryRange" id="salaryRange"
+                                                                required>
+                                                                <option value="1">$0.00 - $328.77</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <!-- end row-->
@@ -279,9 +328,22 @@
             calculation();
         }, 1);
 
+        console.log("mqo");
+
+
         function calculation() {
             var sum = 0;
+            var _currency = document.getElementById("currency");
+            var currency = _currency.value;
+
+            var _payDuration = document.getElementById("payDuration");
+            var payDuration = _payDuration.value;
+
+            console.log(currency);
+            console.log(payDuration);
+
             var basic_salary = $("#basic_salary").val();
+
 
             var paye = $("#paye").val();
             var paye_val = (+basic_salary * +paye);
@@ -312,6 +374,152 @@
             var tax_deduction = $("#tax_deduction").val();
             var provident_fund_deduction = $("#provident_fund_deduction").val();
             var other_deduction = $("#other_deduction").val();
+
+
+            //ZWL payee
+
+            if (currency == "ZWL" && payDuration == "daily") {
+
+                var rate;
+                var amount;
+
+                if (-100000000000000000 < +basic_salary && +basic_salary < 328.77) {
+                    rate = 0;
+                    amount = 0;
+                } else if (328.78 < +basic_salary && +basic_salary < 986.30) {
+                    rate = 20;
+                    amount = 65.75;
+                } else if (986.31 < +basic_salary && +basic_salary < 1972.60) {
+                    rate = 25;
+                    amount = 115.07;
+                } else if (1972.61 < +basic_salary && +basic_salary < 3945.21) {
+                    rate = 30;
+                    amount = 213.70;
+                } else if (3945.22 < +basic_salary && +basic_salary < 8219.18) {
+                    rate = 35;
+                    amount = 410.96;
+                } else if (8219.19 < +basic_salary) {
+                    rate = 40;
+                    amount = 821.92;
+                } else {
+                    console.log("pakaipa");
+
+                }
+
+                var paye = $("#paye").val();
+
+                console.log(rate);
+                console.log(amount);
+                var paye_val = ((+basic_salary * (+rate / 100)) - +amount);
+                $("#paye_val").val(paye_val);
+
+            } else if (currency == "ZWL" && payDuration == "weekly") {
+                var rate;
+                var amount;
+
+                if (-1000000000000000000 < +basic_salary && +basic_salary < 2307.69) {
+                    rate = 0;
+                    amount = 0;
+                } else if (2307.70 < +basic_salary && +basic_salary < 6923.08) {
+                    rate = 20;
+                    amount = 461.54;
+                } else if (6923.09 < +basic_salary && +basic_salary < 13846.15) {
+                    rate = 25;
+                    amount = 807.69;
+                } else if (13846.16 < +basic_salary && +basic_salary < 27692.31) {
+                    rate = 30;
+                    amount = 1500.00;
+                } else if (27692.32 < +basic_salary && +basic_salary < 27692.32) {
+                    rate = 35;
+                    amount = 2884.62;
+                } else if (57692.32 < +basic_salary) {
+                    rate = 40;
+                    amount = 5769.23;
+                } else {
+                    console.log("pakaipa");
+
+                }
+
+                var paye = $("#paye").val();
+
+                console.log(rate);
+                console.log(amount);
+                var paye_val = ((+basic_salary * (+rate / 100)) - +amount);
+                $("#paye_val").val(paye_val);
+
+            } else if (currency == "ZWL" && payDuration == "fortnightly") {
+                var rate;
+                var amount;
+
+                if (-1000000000000000000 < +basic_salary && +basic_salary < 4615.38 ) {
+                    rate = 0;
+                    amount = 0;
+                } else if (4615.39 < +basic_salary && +basic_salary < 13846.15) {
+                    rate = 20;
+                    amount = 923.08 ;
+                } else if (13846.16  < +basic_salary && +basic_salary < 27692.31) {
+                    rate = 25;
+                    amount = 1615.38;
+                } else if (27692.32 < +basic_salary && +basic_salary < 55384.62) {
+                    rate = 30;
+                    amount = 3000.00;
+                } else if (55384.63 < +basic_salary && +basic_salary < 115384.62 ) {
+                    rate = 35;
+                    amount = 5769.23;
+
+                } else if (115384.63 < +basic_salary) {
+                    rate = 40;
+                    amount = 11538.46;
+                } else {
+                    console.log("pakaipa");
+
+                }
+
+                var paye = $("#paye").val();
+
+                console.log(rate);
+                console.log(amount);
+                var paye_val = ((+basic_salary * (+rate / 100)) - +amount);
+                $("#paye_val").val(paye_val);
+
+            } else if (currency == "ZWL" && payDuration == "monthly") {
+                var rate;
+                var amount;
+
+                if (-1000000000000000000 < +basic_salary && +basic_salary < 4615.38 ) {
+                    rate = 0;
+                    amount = 0;
+                } else if (4615.39 < +basic_salary && +basic_salary < 13846.15) {
+                    rate = 20;
+                    amount = 461.54;
+                } else if (13846.16  < +basic_salary && +basic_salary < 27692.31) {
+                    rate = 25;
+                    amount = 807.69;
+                } else if (27692.32 < +basic_salary && +basic_salary < 55384.62) {
+                    rate = 30;
+                    amount = 1500.00;
+                } else if (55384.63 < +basic_salary && +basic_salary < 115384.62 ) {
+                    rate = 35;
+                    amount = 2884.62;
+
+                } else if (115384.63 < +basic_salary) {
+                    rate = 40;
+                    amount = 5769.23;
+                } else {
+                    console.log("pakaipa");
+
+                }
+
+                var paye = $("#paye").val();
+
+                console.log(rate);
+                console.log(amount);
+                var paye_val = ((+basic_salary * (+rate / 100)) - +amount);
+                $("#paye_val").val(paye_val);
+
+            } else {
+                console.log("hie zwl");
+            }
 
             var gross_salary = (+basic_salary + +house_rent_allowance + +medical_allowance + +special_allowance + +
                 other_allowance + +provident_fund_contribution);
