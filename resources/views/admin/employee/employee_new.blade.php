@@ -104,7 +104,6 @@
                                         <select class="form-control select2" name="user_id" data-toggle="select2">
                                             <option>Select</option>
                                             @forelse ($users as $user)
-                                                {{-- <option value="2">{{ $user->email }}</option> --}}
                                                 <option value="{{ $user->id }}">{{ $user->email }}</option>
                                             @empty
                                                 <option value="">Currently no users</option>
@@ -112,7 +111,7 @@
                                         </select>
                                     </div>
                                   
-                                    <div class="mt-+4h  b">
+                                    <div class="mt-4">
                                         <button type="submit" class="btn btn-primary" style="width: 100%">Save</button>
                                     </div>
                                 </div> <!-- end col-->

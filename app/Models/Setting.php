@@ -13,9 +13,7 @@ class Setting extends Model
 
     protected $fillable = [
 
-        'id', 'paye', 'basic_salary',
-        'pension', 'nassa', 'zero_payee',
-        'period_earning',
+        'id', 'paye', 'basic_salary','nassa',
 
     ];
 

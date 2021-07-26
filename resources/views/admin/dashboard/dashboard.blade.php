@@ -20,56 +20,56 @@
             <!-- end page title -->
 
             <div class="row">
-
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card">
-                        <a href="employees">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-6">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Employees
-                                        </h5>
-                                        <h3 class="my-2 py-1">{{ $employees }}</h3>
+                <div class="col-12">
+                    <div class="card widget-inline">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="card shadow-none m-0">
+                                        <div class="card-body text-center">
+                                            <i class="dripicons-briefcase text-muted" style="font-size: 24px;"></i>
+                                            <h3><span>{{ $users }}</span></h3>
+                                            <p class="text-muted font-15 mb-0">Administators</p>
+                                        </div>
                                     </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end card-body -->
-                        </a>
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card">
-                        <a href="users">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-6">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Administators
-                                        </h5>
-                                        <h3 class="my-2 py-1">{{ $users }}</h3>
+                                </div>
+    
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="card shadow-none m-0 border-start">
+                                        <div class="card-body text-center">
+                                            <i class="dripicons-checklist text-muted" style="font-size: 24px;"></i>
+                                            <h3><span>${{ $pay }}</span></h3>
+                                            <p class="text-muted font-15 mb-0">Total Salaries</p>
+                                        </div>
                                     </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end card-body -->
-                        </a>
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card">
-                        <a href="reports">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-6">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Total Pay Cost
-                                        </h5>
-                                        <h3 class="my-2 py-1">$657,890.00 </h3>
+                                </div>
+    
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="card shadow-none m-0 border-start">
+                                        <div class="card-body text-center">
+                                            <i class="dripicons-user-group text-muted" style="font-size: 24px;"></i>
+                                            <h3><span>{{ $employees }}</span></h3>
+                                            <p class="text-muted font-15 mb-0">Employees</p>
+                                        </div>
                                     </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end card-body -->
-                        </a>
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
+                                </div>
+    
+                                <div class="col-sm-6 col-xl-3">
+                                    <div class="card shadow-none m-0 border-start">
+                                        <div class="card-body text-center">
+                                            <i class="dripicons-graph-line text-muted" style="font-size: 24px;"></i>
+                                            <h3><span>$500.67</span></h3>
+                                            <p class="text-muted font-15 mb-0">Tax Due</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div> <!-- end row -->
+                        </div>
+                    </div> <!-- end card-box-->
+                </div> <!-- end col-->
             </div>
-            <!-- end row -->
+            <!-- end row-->
 
             <div class="row">
                 <div class="col-lg-5">
@@ -296,7 +296,7 @@
                                     <div class="col-md-6">
                                         <p class="text-muted mb-0 mt-3">Current Month</p>
                                         <h2 class="fw-normal mb-3">
-                                            <span>$42,025</span>
+                                            <span>${{ $pay }}</span>
                                         </h2>
                                     </div>
                                     <div class="col-md-6">

@@ -16,7 +16,7 @@ class Payroll extends Model
         'id', 'employee_id', 'basic_salary',
         'house_rent_allowance', 'medical_allowance', 'special_allowance',
         'provident_fund_contribution', 'other_allowance', 'paye_deduction',
-        'zero_paye_deduction', 'nassa_deduction', 'period_earning_deduction',
+        'aids_levy_deduction', 'nassa_deduction','total_deduction','net_salary' 
 
     ];
 

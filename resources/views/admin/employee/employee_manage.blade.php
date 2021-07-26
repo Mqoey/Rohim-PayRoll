@@ -59,7 +59,6 @@
                             <table class="table table-centered mb-0">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Mobile</th>
                                         <th>Email</th>
@@ -70,7 +69,6 @@
                                 <tbody>
                                     @foreach ($employees as $employee)
                                     <tr>
-                                        <td><a href="" class="text-body fw-bold">{{ $employee->id }}</a> </td>
                                         <td><a href="" class="text-body fw-bold">{{ $employee->first_name }}
                                                 {{ $employee->last_name }}</a> </td>
                                         <td><a href="" class="text-body fw-bold">{{ $employee->phone_number }} </a> </td>
@@ -80,7 +78,6 @@
                                         </td>
 
                                         <td>
-                                            <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
                                             <a href="/employee_manange/{{$employee->id}}/edit" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                             <a href="/employee_manange/{{$employee->id}}" class="action-icon "> <i class="mdi mdi-delete delete-user"></i>
                                             </a>

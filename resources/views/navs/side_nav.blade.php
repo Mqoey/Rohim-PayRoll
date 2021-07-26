@@ -2,7 +2,7 @@
 
     <div class="leftbar-user">
         <a href="users">
-            <img src="assets/images/users/user1.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+            <img src="{{ asset('assets/images/users/user1.png') }}" alt="user-image" height="42" class="rounded-circle shadow-sm">
             <span class="leftbar-user-name">Administrator</span>
         </a>
     </div>
@@ -13,7 +13,8 @@
         <li class="side-nav-title side-nav-item">Navigation</li>
 
         <li class="side-nav-item">
-            <a href="{{ url('/dashboard') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+            <a href="{{ url('/dashboard') }}" aria-expanded="false" aria-controls="sidebarDashboards"
+                class="side-nav-link">
                 <i class="uil-home-alt"></i>
                 <span> Dashboard</span>
             </a>
@@ -74,18 +75,17 @@
             </a>
         </li>
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+        <li class="side-nav-item">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
 
-            <a href="route('logout')" onclick="event.preventDefault();
-                    this.closest('form').submit();" class="dropdown-item notify-item">
-                
+                <a href="route('logout')" onclick="event.preventDefault();
+                        this.closest('form').submit();" class="side-nav-link">
                     <i class="uil-sign-out-alt"></i>
-                <span>Logout</span>
-            </a>
-        </form>
-        
-        <div class="clearfix"></div>
-        <!-- Sidebar -left -->
-
+                    <span>Logout</span>
+                </a>
+            </form>
+        </li>
+    </ul>
+    <!-- Sidebar -left -->
 </div>

@@ -40,16 +40,7 @@
 
 
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card bg-secondary text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Period Earning Report</h5>
-                            <p class="card-text">Click to generate report from the selected date. </p>
-                            <a href="javascript: void(0);" class="btn btn-primary btn-sm">Generate</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-
+                
                 <div class="col-md-4">
                     <div class="card bg-secondary text-white">
                         <div class="card-body">
@@ -63,20 +54,7 @@
                 <div class="col-md-4">
                     <div class="card bg-secondary text-white">
                         <div class="card-body">
-                            <h5 class="card-title">Pension Report</h5>
-                            <p class="card-text">Click to generate report from the selected date. </p>
-                            <a href="javascript: void(0);" class="btn btn-primary btn-sm">Generate</a>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-            </div>
-            <!-- end row -->
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card bg-secondary text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Zero Paye Report</h5>
+                            <h5 class="card-title">Aids Levy</h5>
                             <p class="card-text">Click to generate report from the selected date. </p>
                             <a href="javascript: void(0);" class="btn btn-primary btn-sm">Generate</a>
                         </div> <!-- end card-body-->

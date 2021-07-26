@@ -32,14 +32,9 @@
                                         <h4 class="header-title mt-5 mt-lg-0">Deductions Rates</h4>
                                         @foreach ($settings as $setting)
                                             <div class="mt-3">
-                                                <label>Paye Deduction Rate</label>
+                                                <label>PAYE Deduction Rate</label>
                                                 <input type="text" class="form-control" name="paye"
                                                     value="{{ $setting->paye }}">
-                                            </div>
-                                            <div class="mt-3">
-                                                <label>Pension Deduction Rate</label>
-                                                <input type="text" class="form-control" name="pension"
-                                                    value="{{ $setting->pension }}">
                                             </div>
                                             <div class="mt-3">
                                                 <label>NASSA Deduction Rate</label>
@@ -47,14 +42,9 @@
                                                     value="{{ $setting->nassa }}">
                                             </div>
                                             <div class="mt-3">
-                                                <label>Zero Paye Deduction Rate</label>
-                                                <input type="text" class="form-control" name="zero_payee"
-                                                    value="{{ $setting->zero_payee }}">
-                                            </div>
-                                            <div class="mt-3">
-                                                <label>Period Earning Deductions</label>
-                                                <input type="text" class="form-control" name="period_earning"
-                                                    value="{{ $setting->period_earning }}">
+                                                <label>AIDS Levy Rate</label>
+                                                <input type="text" class="form-control" name="aids_levy"
+                                                    value="{{ $setting->aids_levy }}">
                                             </div>
                                         @endforeach
                                         <div class="box-footer mt-3">

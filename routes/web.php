@@ -6,6 +6,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Models\Employee;
 use App\Models\EmployeeType;
+use App\Models\Payroll;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/dashboard', function () {
 
     return view(
-        'admin.dashboard.dashboard',
-        ['users' => User::all()->count()],
-        ['employees' => Employee::all()->count()]
-    );
+        'admin.dashboard.dashboard')
+        ->with('users', User::all()->count())
+        ->with('pay', Payroll::all()->sum('net_salary'))
+        ->with('employees', Employee::all()->count());
+    
 })->middleware(['auth'])->name('dashboard');
 
 //payroll
@@ -63,6 +65,7 @@ Route::get('/users/{user}', [UserController::class, 'delete']);
 Route::get('/employee_manange', [EmployeeController::class, 'index']);
 Route::get('/employee_manange/{employee}', [EmployeeController::class, 'delete']);
 Route::get('/employee_manange/{employee}/edit', [EmployeeController::class, 'edit']);
+Route::post('/employee_manange/update', [EmployeeController::class, 'update']);
 
 Route::get('/employee_new', function () {
     return view('admin.employee.employee_new', ['users' => User::all()]);
